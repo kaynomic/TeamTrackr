@@ -13,9 +13,9 @@ class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
-    hashed_password = db.Column(db.String(255), nullable=False)
     image = db.Column(db.String(1000))
     follower_id = db.Column(db.Integer)
+    hashed_password = db.Column(db.String(255), nullable=False)
 
     #Relationships
     user_posts = db.relationship("Post", back_populates= 'post_creator', cascade='all, delete')
@@ -43,7 +43,7 @@ class User(db.Model, UserMixin):
             'id': self.id,
             'username': self.username,
             'image': self.image,
-            'posts': [post.to_dict() for post in self.user_posts]
+            'posts': [post.to_dict_basic() for post in self.user_posts]
         }
     
     def to_dict_follow(self):

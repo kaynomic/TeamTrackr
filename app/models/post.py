@@ -30,5 +30,12 @@ class Post(db.Model):
             'id': self.id,
             'body': self.body,
             'image': self.image,
-            'user': self.user.to_dict_basic()
+            'user': self.user_id
+        }
+    
+    def to_dict_basic(self):
+        return {
+            'id': self.id,
+            'body': self.body,
+            'image': self.image
         }

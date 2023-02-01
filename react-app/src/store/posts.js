@@ -29,7 +29,7 @@ const createPost = payload => {
     }
 }
 
-export const createPostThunk = (formData) => async (dispatch) => {
+export const createPostThunk = (body) => async (dispatch) => {
 
     const res = await fetch(`/api/posts/create`, {
         method: 'POST',
@@ -37,8 +37,7 @@ export const createPostThunk = (formData) => async (dispatch) => {
             "Content-Type": "application/json",
           },
         body: JSON.stringify({
-          media,
-          caption
+          body
         }),
       });
 
@@ -55,7 +54,7 @@ const editPost = payload => {
     }
 }
 
-export const editPostThunk = (postId, caption) => async (dispatch) => {
+export const editPostThunk = (postId, body) => async (dispatch) => {
 
     const res = await fetch(`/api/posts/${postId}/edit`, {
         method: 'PUT',
@@ -63,7 +62,7 @@ export const editPostThunk = (postId, caption) => async (dispatch) => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          caption
+          body
         }),
       });
 
@@ -97,10 +96,10 @@ export default function reducer(state = defaultState, action) {
         case CREATE_POST:
             newState[action.payload.id] = action.payload
             return newState;
-        case EDIT_SERVER:
+        case EDIT_POST:
             newState[action.payload.id] = action.payload
             return newState;
-        case DELETE_SERVER:
+        case DELETE_POST:
             delete newState[action.postId]
             return newState;
         default:
