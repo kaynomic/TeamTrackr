@@ -19,7 +19,7 @@ class Comment(db.Model):
 
     #Relationships
     comment_creator = db.relationship("User", back_populates='user_comments')
-    post = db.relationship("Post", back_populates='comment')
+    post = db.relationship("Post", back_populates='comments')
     
 
     @property
@@ -29,8 +29,15 @@ class Comment(db.Model):
     def to_dict(self):
         return {
             'id': self.id,
-            'post_id': self.post_id,
             'body': self.body,
             'image': self.image,
-            'user': self.user.to_dict_basic()
+            # 'user': [user.to_dict_basic() for user in self.comment_creator]
+        }
+    
+    
+    def to_dict_basic(self):
+        return {
+            'id': self.id,
+            'body': self.body,
+            'image': self.image
         }

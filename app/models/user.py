@@ -43,7 +43,8 @@ class User(db.Model, UserMixin):
             'id': self.id,
             'username': self.username,
             'image': self.image,
-            'posts': [post.to_dict_basic() for post in self.user_posts]
+            'posts': [post.to_dict_basic() for post in self.user_posts],
+            'comments': [comment.to_dict_basic() for comment in self.user_comments]
         }
     
     def to_dict_follow(self):

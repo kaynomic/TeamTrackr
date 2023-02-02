@@ -18,7 +18,7 @@ class Post(db.Model):
 
     #Relationships
     post_creator = db.relationship("User", back_populates='user_posts')
-    comment = db.relationship("Comment", back_populates='post')
+    comments = db.relationship("Comment", back_populates='post')
     
 
     @property
@@ -30,7 +30,8 @@ class Post(db.Model):
             'id': self.id,
             'body': self.body,
             'image': self.image,
-            'user': self.user_id
+            # 'user': [user.to_dict_basic() for user in self.post_creator],
+            'comments': [comment.to_dict() for comment in self.comments]
         }
     
     def to_dict_basic(self):
