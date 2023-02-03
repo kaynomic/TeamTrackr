@@ -1,6 +1,7 @@
 const defaultState = {}
 
 const LOAD_POST = 'posts/LOAD_POST';
+const ALL_POSTS = 'posts/ALL_POSTS'
 const CREATE_POST = 'posts/CREATE_POST';
 const EDIT_POST = 'posts/EDIT_POST';
 const DELETE_POST = 'posts/DELETE_POST';
@@ -19,6 +20,22 @@ export const loadPostThunk = (postId) => async (dispatch) => {
     if (res.ok) {
         const data = await res.json()
         dispatch(loadPost(data))
+      }
+}
+
+const allPosts = payload => {
+    return {
+        type: ALL_POSTS,
+        payload
+    }
+}
+
+export const allPostsThunk = () => async (dispatch) => {
+    const res = await fetch(`/api/posts`)
+
+    if (res.ok) {
+        const data = await res.json()
+        dispatch(allPosts(data))
       }
 }
 
@@ -92,6 +109,8 @@ export default function reducer(state = defaultState, action) {
 
     switch (action.type) {
         case LOAD_POST:
+            return {...newState, ...action.payload}
+        case ALL_POSTS:
             return {...newState, ...action.payload}
         case CREATE_POST:
             newState[action.payload.id] = action.payload
