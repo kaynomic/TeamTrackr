@@ -10,6 +10,10 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import FourOFour from './components/404';
 import HomePage from './components/HomePage';
+import UserPage from './components/User/UserPage';
+import CreatePostForm from './components/post/Create/CreatePostForm';
+import EditPostForm from './components/post/Edit/EditPostForm';
+import PostPage from './components/post/Read/PostPage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -28,9 +32,9 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
       <Switch>
       <Route path='/' exact={true} >
+          <NavBar />
           <HomePage />
         </Route>
         <Route path='/login' exact={true}>
@@ -44,6 +48,18 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
+        </ProtectedRoute>
+        <ProtectedRoute path='/me' exact={true} >
+          <UserPage />
+        </ProtectedRoute>
+        <ProtectedRoute path='/posts/:postId' exact={true} >
+          <PostPage />
+        </ProtectedRoute>
+        <ProtectedRoute path='/posts/create' exact={true} >
+          <CreatePostForm />
+        </ProtectedRoute>
+        <ProtectedRoute path='/posts/:postId/edit' exact={true} >
+          <EditPostForm />
         </ProtectedRoute>
         <Route component={FourOFour}></Route>
       </Switch>

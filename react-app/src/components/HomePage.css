@@ -1,3 +1,15 @@
+@import url('https://fonts.cdnfonts.com/css/espn');
+
+* {
+    font-family: 'ESP', sans-serif;
+    background-color: black;
+    color: white;
+}
+
+/* .bg-img-container {
+    size: 600px;
+} */
+
 .header-image-home {
     width: 95%;
     padding-top: 50px;
@@ -36,9 +48,9 @@
 }
 
 .home-intro {
-    font-family: Montserrat;
+    font-family: ESP;
     font-weight: bold;
-    background-color: #7289da;
+    background-color: gray;
     border: 1px solid transparent;
     border-radius: 40px;
     margin: 100px;
@@ -49,29 +61,29 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 20px;
+    padding-top: 50px;
 }
 
 
 .home-login-button {
     width: 200px;
     height: 80px;
-    border-radius: 100px; /* half of the width and height */
-    background-color: #7289da; /* discord blue color */
+    border-radius: 10px;
+    background-color: #ff0000; 
     color: white;
     font-size: 1.2rem;
     font-weight: bold;
     border: none;
     cursor: pointer;
-    box-shadow: 3px 3px 3px #b3b3b3;
+    box-shadow: 2px 2px 2px #b3b3b3;
 
 }
 
 .home-signup-button{
     width: 200px;
     height: 80px;
-    border-radius: 100px; /* half of the width and height */
-    background-color: #5a5a5a; /* discord blue color */
+    border-radius: 10px;
+    background-color: #ff0000; 
     color: white;
     font-size: 1.2rem;
     font-weight: bold;
@@ -81,26 +93,37 @@
     box-shadow: 2px 2px 2px #888888;
 }
 
-.disbored-home-header {
+.home-header {
     font-size: 120px;
     text-align: center;
+    color: #ff0000;
     padding: 0px;
 }
 
-.certified-coder-boys {
-    text-align: center;
-    font-size: 60px;
-    text-decoration: none;
-    color: white;
-}
-
 .github-logo-container {
-text-align: center;
-padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding-top: 100px;
 }
 
 .github-logo {
     height: 70px;
     width: 70px;
     border-radius: 20px;
+}
+
+.home-bottom {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: red;
+    font-size: large;
+}
+
+.disbored-home-header {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

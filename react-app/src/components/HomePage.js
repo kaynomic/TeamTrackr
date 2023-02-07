@@ -14,18 +14,11 @@ const HomePage = () => {
 
         return (
             <div>
-                    {/* <Link to='/login' className='nav-bar-login'>LOGIN</Link>
-                    <Link to='/sign-up' className='nav-bar-signup'>SIGN UP</Link> */}
-                    {/* <img className='github-logo' src='https://i.pinimg.com/originals/b5/1b/78/b51b78ecc9e5711274931774e433b5e6.png'></img> */}
-
+                {/* <div className='bg-img-container'>
+                    <img src="https://www.freepik.com/premium-vector/abstract-geometric-shapes-red-light-sport-dark-background_5401993.htm#from_view=detail_alsolike" alt='espn-inspired-image' className='bg-img'></img>
+                </div> */}
                 <div className='home-container'>
-                    <h1 className='disbored-home-header'>TeamTrackr</h1>
-                    <div className='github-logo-container'>
-                    <a href='https://github.com/JaylenGarner/Disbored'>
-                        <img className='github-logo' src='https://i.pinimg.com/originals/b5/1b/78/b51b78ecc9e5711274931774e433b5e6.png'></img>
-                    </a>
-                    </div>
-                    {/* <img src='https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0b544a3e3c7c05753bcd_full_logo_white_RGB.png' alt='image1' className='header-image-home'/> */}
+                    <h1 className='home-header'>TeamTrackr</h1>
                         <div className='home-buttons'>
                             <Link to='/login'>
                                 <button className='home-login-button'>Login</button>
@@ -34,6 +27,14 @@ const HomePage = () => {
                                 <button className='home-signup-button'>Signup</button>
                             </Link>
                         </div>
+                    <div className='github-logo-container'>
+                        <a href='https://github.com/kaynomic/TeamTrackr'>
+                            <img className='github-logo' src='https://i.pinimg.com/originals/b5/1b/78/b51b78ecc9e5711274931774e433b5e6.png' alt='github-logo'></img>
+                        </a>
+                    </div>
+                    <div>
+                        <h3 className='home-bottom'>Your new favorite sports app!</h3>
+                    </div>
                 </div>
             </div>
         );

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect, Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
 import './LoginForm.css';
 
@@ -21,7 +21,7 @@ const LoginForm = () => {
 
   const forDemo = async (e) => {
     e.preventDefault();
-    const data = await dispatch(login("demo-user@aa.io", "password"))
+    const data = await dispatch(login("demo@aa.io", "password"))
     if (data) {
       setErrors(data)
     }
@@ -36,19 +36,20 @@ const LoginForm = () => {
   };
 
   if (user) {
-    return <Redirect to='/' />;
+    return <Redirect to='/me' />;
   }
+
 
   return (
     <div className='login-container'>
     <form onSubmit={onLogin} className="form-container">
       <div>
         {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
+          <div key={ind} className='error-handle'>{error}</div>
         ))}
       </div>
         <h1 className='login-header'>WELCOME BACK!</h1>
-        <p className='email-header'>EMAIL</p>
+        {/* <p className='email-header'>EMAIL</p> */}
         <label htmlFor='email'></label>
         <input
           className='email-input'
@@ -59,7 +60,7 @@ const LoginForm = () => {
           onChange={updateEmail}
           required
         />
-        <p className='password-header'>PASSWORD</p>
+        {/* <p className='password-header'>PASSWORD</p> */}
         <label htmlFor='password'></label>
         <input
           className='password-input'
@@ -70,7 +71,7 @@ const LoginForm = () => {
           onChange={updatePassword}
           required
         />
-        <p className='forgot-password'>Forgot your password?</p>
+        {/* <p className='forgot-password'>Forgot your password?</p> */}
       <div>
         <button type='submit' className='login-button'>Login</button>
       </div>

@@ -1,5 +1,5 @@
 /* TODO Add site wide styles */
-@import url(https://fonts.googleapis.com/css?family=Montserrat:400,600,700|Work+Sans:300,400,700,900%27);
+@import url('https://fonts.cdnfonts.com/css/espn');
 
 /* .app-container {
     display: flex;
@@ -10,7 +10,7 @@
     display: flex;
     background-color: #37393E;
     color: white;
-    font-family: 'Montserrat';
+    font-family: 'ESP', sans-serif;
     position: absolute;
     top: 0; right: 0; bottom: 0; left: 0;
 }
