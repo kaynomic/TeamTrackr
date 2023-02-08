@@ -20,7 +20,17 @@ function PostPage() {
     }
 
     const handleDelete = (postId) => {
-        dispatch(deletePostThunk(postId))
+        dispatch(deletePostThunk(postId)).then(history.push(`/users/${user.id}/posts`))
+    }
+
+    const showComments = () => {
+        if (post.comments) {
+            return (
+            <div>{post.comments.map(comment => {
+                return (comment.body)
+            })}</div>
+            )
+        }
     }
 
   return (
@@ -28,9 +38,7 @@ function PostPage() {
         <div>{user.username}</div>
         <div>{post.body}</div>
         <br></br>
-        {/* <div>{post.comments.map(comment => {
-            return (comment.body)
-        })}</div> */}
+        {showComments()}
         <div className='post-buttons-container'>
             <button onClick={handleEdit} className='post-edit-button'>Edit Post</button>
             <button onClick={() => handleDelete(postId)}className='post-delete-button'>Delete Post</button>

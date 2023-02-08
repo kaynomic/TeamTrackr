@@ -16,13 +16,15 @@ def get_comment(id):
 @comment_routes.route('/create', methods=["POST"])
 @login_required
 def create_comment():
+    post_id = request.json['postId']
+    body = request.json['body']
 
-    post = Post.query.get(id)
+    post = Post.query.get(post_id)
 
     comment = Comment (
-        user_id = current_user.id,
-        post_id = request.json["postId"],
-        body = request.json["body"]
+        user_id = int(current_user.id),
+        post_id = int(post_id),
+        body = body
     )
 
     db.session.add(comment)

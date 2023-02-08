@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { editPostThunk, loadPostThunk } from '../../../store/posts';
@@ -10,7 +10,7 @@ const EditPostForm = () => {
   const [error, setError] = useState(null);
   const [body, setBody] = useState('');
   const [image, SetImage] = useState('');
-//   const user = useSelector(state => state.session.user);
+  const user = useSelector(state => state.session.user);
   const {postId} = useParams();
   const dispatch = useDispatch();
   const history = useHistory();
@@ -26,7 +26,7 @@ const EditPostForm = () => {
     //   setError(null)
     // }
 
-    return dispatch(editPostThunk(postId, body)).then(history.push('/me'))
+    return dispatch(editPostThunk(postId, body)).then(history.push(`/users/${user.id}`))
 
   };
 

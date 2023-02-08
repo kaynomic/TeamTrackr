@@ -6,7 +6,7 @@ import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
-import User from './components/User';
+// import User from './components/User';
 import { authenticate } from './store/session';
 import FourOFour from './components/404';
 import HomePage from './components/HomePage';
@@ -14,6 +14,7 @@ import UserPage from './components/User/UserPage';
 import CreatePostForm from './components/post/Create/CreatePostForm';
 import EditPostForm from './components/post/Edit/EditPostForm';
 import PostPage from './components/post/Read/PostPage';
+import UserPosts from './components/post/Read/UserPosts';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -47,15 +48,15 @@ function App() {
           <UsersList/>
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
-        </ProtectedRoute>
-        <ProtectedRoute path='/me' exact={true} >
           <UserPage />
+        </ProtectedRoute>
+        <ProtectedRoute path='/users/:userId/posts' exact={true} >
+          <UserPosts />
         </ProtectedRoute>
         <ProtectedRoute path='/posts/:postId' exact={true} >
           <PostPage />
         </ProtectedRoute>
-        <ProtectedRoute path='/posts/create' exact={true} >
+        <ProtectedRoute path='/create-post' exact={true} >
           <CreatePostForm />
         </ProtectedRoute>
         <ProtectedRoute path='/posts/:postId/edit' exact={true} >
