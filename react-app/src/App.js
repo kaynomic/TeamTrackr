@@ -15,6 +15,10 @@ import CreatePostForm from './components/post/Create/CreatePostForm';
 import EditPostForm from './components/post/Edit/EditPostForm';
 import PostPage from './components/post/Read/PostPage';
 import UserPosts from './components/post/Read/UserPosts';
+import CreateCommentForm from './components/comment/Create/CreateCommentForm';
+import CommentPage from './components/comment/Read/CommentPage';
+import EditCommentForm from './components/comment/Edit/EditCommentForm';
+import TeamsPage from './components/teams/TeamsPage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -35,7 +39,6 @@ function App() {
     <BrowserRouter>
       <Switch>
       <Route path='/' exact={true} >
-          <NavBar />
           <HomePage />
         </Route>
         <Route path='/login' exact={true}>
@@ -50,6 +53,9 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <UserPage />
         </ProtectedRoute>
+        <ProtectedRoute path='/users/:userId/teams' exact={true} >
+          <TeamsPage />
+        </ProtectedRoute>
         <ProtectedRoute path='/users/:userId/posts' exact={true} >
           <UserPosts />
         </ProtectedRoute>
@@ -61,6 +67,15 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/posts/:postId/edit' exact={true} >
           <EditPostForm />
+        </ProtectedRoute>
+        <ProtectedRoute path='/posts/:postId/comments/create' exact={true} >
+          <CreateCommentForm />
+        </ProtectedRoute>
+        <ProtectedRoute path='/posts/:postId/comments/:commentId' exact={true} >
+          <CommentPage />
+        </ProtectedRoute>
+        <ProtectedRoute path='/comments/:commentId/edit' exact={true} >
+          <EditCommentForm />
         </ProtectedRoute>
         <Route component={FourOFour}></Route>
       </Switch>

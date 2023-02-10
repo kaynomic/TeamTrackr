@@ -23,17 +23,10 @@ const UserPage = () => {
         history.push('/create-post')
     }
 
-    const handleMyPosts = () => {
-        history.push(`/users/${userId}/posts`)
-    }
-
         return (
             <div>
                 <NavBar />
                 <h1 className='user-header'>{user.username}</h1>
-                <button type='submit' className='my-posts-button' onClick={handleMyPosts}>
-                    My Posts
-                </button>
                 <button type='submit' className='create-post-button' onClick={handleClick}>
                     +
                 </button>

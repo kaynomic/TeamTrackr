@@ -11,6 +11,13 @@ def get_post(id):
     post = Post.query.get(id)
     return post.to_dict()
 
+#Get All Posts
+@post_routes.route('/')
+def all_posts():
+    posts = Post.query.all()
+    posts_list = [post.to_dict() for post in posts]
+    return jsonify(posts_list)
+
 
 # Create a Post
 @post_routes.route('/create', methods=["POST"])

@@ -31,7 +31,7 @@ class Comment(db.Model):
             'id': self.id,
             'body': self.body,
             'image': self.image,
-            # 'user': [user.to_dict_basic() for user in self.comment_creator]
+            'user': self.comment_creator.to_dict_basic()
         }
     
     

@@ -1,15 +1,15 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory, useParams } from 'react-router-dom';
-import { allPostsThunk, loadUserPostsThunk } from '../../../store/posts';
+import { allPostsThunk } from '../../../store/posts';
 
 function UserPosts() {
 
     const user = useSelector(state => state.session.user);
     const post = useSelector(state => state.posts)
-    const {userId} = useParams();
+    // const {userId} = useParams();
     const dispatch = useDispatch();
-    const history = useHistory();
+    // const history = useHistory();
 
     useEffect(() => {
         dispatch(allPostsThunk())
