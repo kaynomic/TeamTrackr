@@ -10,7 +10,8 @@ const CreateCommentForm = () => {
   const [error, setError] = useState(null);
   const [body, setBody] = useState('');
   const [image, SetImage] = useState('');
-  const user = useSelector(state => state.session.user);
+  // const user = useSelector(state => state.session.user);
+  // const post = useSelector(state => state.posts)
   const dispatch = useDispatch();
   const history = useHistory();
   const {postId} = useParams();
@@ -26,7 +27,7 @@ const CreateCommentForm = () => {
     //   setError(null)
     // }
 
-    return dispatch(createCommentThunk(postId, body)).then(history.push(`/users/${user.id}/posts`))
+    return dispatch(createCommentThunk(postId, body)).then(history.push(`/posts/${postId}`))
 
   };
 

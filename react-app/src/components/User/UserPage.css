@@ -1,3 +1,8 @@
+.user-side {
+    display: block;
+    width: 20%;
+}
+
 .user-header {
     color: white;
 }
@@ -6,10 +11,41 @@
     color: white;
 }
 
+.user-img {
+    width: 100px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.name-img {
+    display: flex;
+}
+
+.user-feed {
+    display: block;
+    width: 80%;
+    right: 0;
+    top: 60px;
+    position: absolute;
+}
+
+.feed-container {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid red;
+    padding: 5px;
+    width: 70%;
+}
+
+.post-button-container {
+    display: block;
+}
+
 .create-post-button {
     color: white;
-    width: 50px;
-    height: 50px;
+    width: 200px;
+    height: 80px;
     font-size: 24px;
     border: 3px solid red;
 }

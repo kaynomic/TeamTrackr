@@ -26,13 +26,13 @@ const EditPostForm = () => {
     //   setError(null)
     // }
 
-    return dispatch(editPostThunk(postId, body)).then(history.push(`/users/${user.id}`))
+    return dispatch(editPostThunk(postId, body)).then(history.push(`/users/${user.id}/posts`))
 
   };
 
-  useEffect(() => {
-    dispatch(loadPostThunk(postId))
-  }, [dispatch, postId, error]);
+  // useEffect(() => {
+  //   dispatch(loadPostThunk(postId))
+  // }, [dispatch, postId, error]);
 
   const updateBody = (e) => {
     setBody(e.target.value);

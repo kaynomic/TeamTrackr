@@ -18,6 +18,13 @@ def all_posts():
     posts_list = [post.to_dict() for post in posts]
     return jsonify(posts_list)
 
+#Get All Comments From A Post
+@post_routes.route('/<int:id>/comments')
+def post_comments(id):
+    post = Post.query.get(id)
+    comments = post.comments
+    return jsonify([comment.to_dict() for comment in comments])
+
 
 # Create a Post
 @post_routes.route('/create', methods=["POST"])

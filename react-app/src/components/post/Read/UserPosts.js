@@ -1,20 +1,22 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useHistory, useParams } from 'react-router-dom';
-import { allPostsThunk } from '../../../store/posts';
+import { Link, useParams } from 'react-router-dom';
+import { loadUserPostsThunk } from '../../../store/posts';
 
 function UserPosts() {
 
     const user = useSelector(state => state.session.user);
-    const post = useSelector(state => state.posts)
-    // const {userId} = useParams();
+    // const post = useSelector(state => state.posts)
+    const {userId} = useParams();
     const dispatch = useDispatch();
-    // const history = useHistory();
 
     useEffect(() => {
-        dispatch(allPostsThunk())
-    }, [dispatch])
+      dispatch(loadUserPostsThunk(userId))
+    }, [dispatch, userId])
 
+    if (!user) {
+      return null
+  } else {
   return (
     <div className='post-container'>
         {user.posts.map((post, i) => {
@@ -25,7 +27,8 @@ function UserPosts() {
                 )
             })}
     </div>
-  );
+    );
+  }
 }
 
 export default UserPosts;

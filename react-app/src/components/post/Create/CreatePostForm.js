@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useEffect } from 'react';
-import { createPostThunk } from '../../../store/posts';
+import { allPostsThunk, createPostThunk, loadUserPostsThunk } from '../../../store/posts';
 import './CreatePost.css';
 
 
@@ -25,12 +25,11 @@ const CreatePostForm = () => {
     //   setError(null)
     // }
 
-    return dispatch(createPostThunk(body, image)).then(history.push(`/users/${user.id}`))
-
+    return dispatch(createPostThunk(body, image)).then(history.push(`/users/${user.id}/posts`))
   };
 
   useEffect(() => {
-
+    
   }, [dispatch, error]);
 
   const updateBody = (e) => {

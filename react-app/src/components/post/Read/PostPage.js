@@ -2,23 +2,23 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory, useParams } from 'react-router-dom';
 import { loadCommentThunk, loadPostCommentsThunk } from '../../../store/comments';
-import { allPostsThunk, deletePostThunk, loadPostThunk } from '../../../store/posts';
+import { deletePostThunk, loadPostThunk } from '../../../store/posts';
+import './PostPage.css';
 
 function PostPage() {
 
-    const user = useSelector(state => state.session.user);
+    const currentUser = useSelector(state => state.session.user);
     const post = useSelector(state => state.posts);
-    // const comment = useSelector(state => state.comments);
-    console.log(post, '!!!')
-    const {postId, commentId} = useParams();
+    const comments = useSelector(state => state.comments);
+    console.log(comments)
+    const {postId} = useParams();
     const dispatch = useDispatch();
     const history = useHistory();
 
     useEffect(() => {
-        dispatch(allPostsThunk())
-        dispatch(loadPostThunk(postId))
-        dispatch(loadPostCommentsThunk(postId))
-        dispatch(loadCommentThunk(commentId))
+      dispatch(loadPostThunk(postId))
+      // dispatch(loadCommentThunk(commentId))
+      dispatch(loadPostCommentsThunk(postId))
     }, [dispatch, postId])
 
     const handleEdit = () => {
@@ -26,7 +26,8 @@ function PostPage() {
     }
 
     const handleDelete = (postId) => {
-        dispatch(deletePostThunk(postId)).then(history.push(`/users/${user.id}/posts`))
+        dispatch(deletePostThunk(postId))
+        .then(history.push(`/users/${currentUser.id}/posts`))
     }
 
     const addComment = () => {
@@ -38,30 +39,37 @@ function PostPage() {
     // }
 
     const showComments = () => {
-        if (post.comments) {
-          return post.comments.map(comment => {
-            return (
-              <Link key={comment.id} to={`/posts/${postId}/comments/${comment.id}`}>
-                <p>{comment.body}</p>
-              </Link>
-            );
-          });
-        }
-      };
+      if (post.comments) {
+        return post.comments.map(comment => {
+          return (
+            <div className='comment-container'>
+              <div className='comment-header'>
+                <p>{comment.user["username"]}</p>
+                <Link key={comment.id} to={`/comments/${comment.id}`}>
+                  <p className='comment-body'>{comment.body}</p>
+                </Link>
+              </div>
+            </div>
+          );
+        });
+      }
+    };
       
 
   return (
+    <>
     <div className='post-page-container'>
-        <div>{user.username}</div>
-        <div>{post.body}</div>
-        <br></br>
-        {showComments()}
-        <div className='post-buttons-container'>
-            <button onClick={handleEdit} className='post-edit-button'>Edit Post</button>
-            <button onClick={() => handleDelete(postId)}className='post-delete-button'>Delete Post</button>
-            <button onClick={addComment}className='add-comment-button'>Add A Comment</button>
-        </div>
+      <div className='post-header'>{currentUser.username}</div>
+      <div className='post-body'>{post.body}</div>
+      <br></br>
+      {showComments()}
     </div>
+    <div className='post-buttons-container'>
+      <button onClick={handleEdit} className='post-edit-button'>Edit Post</button>
+      <button onClick={() => handleDelete(postId)}className='post-delete-button'>Delete Post</button>
+      <button onClick={addComment}className='add-comment-button'>Add A Comment</button>
+    </div>
+    </>
   );
 }
 

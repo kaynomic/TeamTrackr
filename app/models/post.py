@@ -26,11 +26,12 @@ class Post(db.Model):
         return f"<Post ID: {self.id}, User ID: {self.user_id}, Body: {self.body}>"
 
     def to_dict(self):
+        user = self.post_creator if self.post_creator else None
         return {
             'id': self.id,
             'body': self.body,
             'image': self.image,
-            # 'user': [user.to_dict_basic() for user in self.post_creator],
+            'user': user.to_dict_basic() if user else None,
             'comments': [comment.to_dict() for comment in self.comments]
         }
     

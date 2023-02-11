@@ -57,9 +57,11 @@ function App() {
           <TeamsPage />
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId/posts' exact={true} >
+          <NavBar />
           <UserPosts />
         </ProtectedRoute>
         <ProtectedRoute path='/posts/:postId' exact={true} >
+          <NavBar />
           <PostPage />
         </ProtectedRoute>
         <ProtectedRoute path='/create-post' exact={true} >
@@ -71,7 +73,7 @@ function App() {
         <ProtectedRoute path='/posts/:postId/comments/create' exact={true} >
           <CreateCommentForm />
         </ProtectedRoute>
-        <ProtectedRoute path='/posts/:postId/comments/:commentId' exact={true} >
+        <ProtectedRoute path='/comments/:commentId' exact={true} >
           <CommentPage />
         </ProtectedRoute>
         <ProtectedRoute path='/comments/:commentId/edit' exact={true} >

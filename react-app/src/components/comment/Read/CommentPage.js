@@ -1,23 +1,22 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
-import { deleteCommentThunk, loadCommentThunk, loadPostCommentsThunk } from '../../../store/comments';
+import { deleteCommentThunk, loadPostCommentsThunk } from '../../../store/comments';
 
 function CommentPage() {
 
     const user = useSelector(state => state.session.user);
     const post = useSelector(state => state.posts);
-    const comment = useSelector(state => state.comments);
-    // console.log(comment.user.id)
-    // console.log(comment.user.id, "???")
+    const comment = Object.values(useSelector(state => state.comments));
+    // const commentUserId = post.comments[0].user.id;
+    console.log(comment, "???")
     const {postId, commentId} = useParams();
     const dispatch = useDispatch();
     const history = useHistory();
 
     useEffect(() => {
         dispatch(loadPostCommentsThunk(postId))
-        dispatch(loadCommentThunk(commentId))
-    }, [dispatch, commentId, postId])
+    }, [dispatch, postId])
 
     const handleEdit = () => {
         history.push(`/comments/${commentId}/edit`)
@@ -27,16 +26,16 @@ function CommentPage() {
         dispatch(deleteCommentThunk(commentId)).then(history.push(`/users/${user.id}/posts`))
     }
 
-    const handleComments = () => {
-        if (user.id === comment.user.id) {
-            return (
-                <div className='comment-buttons-container'>
-                    <button onClick={handleEdit} className='comment-edit-button'>Edit Comment</button>
-                    <button onClick={() => handleDelete(commentId)}className='post-delete-button'>Delete Comment</button>
-                </div>
-            )
-        }
-    }
+    // const handleComments = () => {
+    //     if (user.id === commentUserId) {
+    //         return (
+    //             <div className='comment-buttons-container'>
+    //                 <button onClick={handleEdit} className='comment-edit-button'>Edit Comment</button>
+    //                 <button onClick={() => handleDelete(commentId)}className='post-delete-button'>Delete Comment</button>
+    //             </div>
+    //         )
+    //     }
+    // }
 
   return (
     <div className='comment-page-container'>
@@ -44,7 +43,7 @@ function CommentPage() {
         <div>{comment.body}</div>
         <br></br>
         <div className='comment-buttons-container'>
-            {handleComments()}
+            {/* {handleComments()} */}
         </div>
     </div>
   );
