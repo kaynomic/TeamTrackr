@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { loadUserPostsThunk } from '../../../store/posts';
+import { authenticate } from '../../../store/session';
+import './UserPosts.css';
 
 function UserPosts() {
 
@@ -11,22 +13,23 @@ function UserPosts() {
     const dispatch = useDispatch();
 
     useEffect(() => {
+      dispatch(authenticate())
       dispatch(loadUserPostsThunk(userId))
     }, [dispatch, userId])
 
     if (!user) {
       return null
-  } else {
-  return (
-    <div className='post-container'>
-        {user.posts.map((post, i) => {
-            return (
+    } else {
+    return (
+      <div className='post-container'>
+          {user.posts.map((post, i) => {
+              return (
                 <Link to={`/posts/${post.id}`}  key={i} className="user-post">  {post.body}
                 <br></br>
                 </Link>
                 )
-            })}
-    </div>
+          })}
+      </div>
     );
   }
 }

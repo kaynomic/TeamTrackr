@@ -13,7 +13,7 @@ const NavBar = () => {
     <nav className='navbar'>
       <ul className='navlinks'>
         <li>
-          <NavLink to={`/users/${user.id}`} exact={true} activeClassName='active'>
+          <NavLink to={`/me`} exact={true} activeClassName='active'>
             Home
           </NavLink>
         </li>

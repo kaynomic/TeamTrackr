@@ -44,7 +44,7 @@
 }
 
 .create-form-body-input {
-    width: 80%;
+    width: 98%;
     display: flex;
     justify-content: center;
     color: white;
@@ -67,10 +67,11 @@
 
 .create-form-button {
     background-color: red;
+    justify-content: center;
     align-self: center;
     color: rgb(151, 151, 151);
     display: flex;
-    width: 85%;
+    width: 100%;
     border: 1px solid transparent;
     border-radius: 5px;
     color: white;

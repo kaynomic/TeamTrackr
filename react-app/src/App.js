@@ -50,10 +50,11 @@ function App() {
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
         </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
+        <ProtectedRoute path='/me' exact={true} >
           <UserPage />
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId/teams' exact={true} >
+          <NavBar />
           <TeamsPage />
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId/posts' exact={true} >
@@ -65,6 +66,7 @@ function App() {
           <PostPage />
         </ProtectedRoute>
         <ProtectedRoute path='/create-post' exact={true} >
+          <NavBar />
           <CreatePostForm />
         </ProtectedRoute>
         <ProtectedRoute path='/posts/:postId/edit' exact={true} >
@@ -73,10 +75,10 @@ function App() {
         <ProtectedRoute path='/posts/:postId/comments/create' exact={true} >
           <CreateCommentForm />
         </ProtectedRoute>
-        <ProtectedRoute path='/comments/:commentId' exact={true} >
+        <ProtectedRoute path='/posts/:postId/comments/:commentId' exact={true} >
           <CommentPage />
         </ProtectedRoute>
-        <ProtectedRoute path='/comments/:commentId/edit' exact={true} >
+        <ProtectedRoute path='/posts/:postId/comments/:commentId/edit' exact={true} >
           <EditCommentForm />
         </ProtectedRoute>
         <Route component={FourOFour}></Route>

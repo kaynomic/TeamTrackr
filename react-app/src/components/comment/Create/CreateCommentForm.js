@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { createCommentThunk } from '../../../store/comments';
@@ -39,9 +39,9 @@ const CreateCommentForm = () => {
     setBody(e.target.value);
   };
 
-  const updateImage = (e) => {
-    SetImage(e.target.value);
-  };
+  // const updateImage = (e) => {
+  //   SetImage(e.target.value);
+  // };
 
   return (
     <div>
@@ -64,14 +64,14 @@ const CreateCommentForm = () => {
       </div>
       <div>
         {/* <p className='create-form-image'>IMAGE</p> */}
-        <input
+        {/* <input
           className='create-form-image-input'
           name='image'
           type='text'
           placeholder='Enter a valid image url'
           value={image}
           onChange={updateImage}
-        />
+        /> */}
         <div className='create-form-button-container'>
         <button type='submit' className='create-form-button'>Create Comment</button>
         </div>

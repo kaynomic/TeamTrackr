@@ -18,29 +18,21 @@ const EditPostForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // if (!data) {
-    //   setError("Please Try Again")
-    //   setBody('')
-    //   SetImage('')
-    // } else {
-    //   setError(null)
-    // }
-
-    return dispatch(editPostThunk(postId, body)).then(history.push(`/users/${user.id}/posts`))
-
+    return dispatch(editPostThunk(postId, body))
+    .then(history.push(`/me`))
   };
 
-  // useEffect(() => {
-  //   dispatch(loadPostThunk(postId))
-  // }, [dispatch, postId, error]);
+  useEffect(() => {
+    dispatch(loadPostThunk(postId))
+  }, [dispatch, postId, error]);
 
   const updateBody = (e) => {
     setBody(e.target.value);
   };
 
-  const updateImage = (e) => {
-    SetImage(e.target.value);
-  };
+  // const updateImage = (e) => {
+  //   SetImage(e.target.value);
+  // };
 
   return (
     <div>
@@ -55,7 +47,7 @@ const EditPostForm = () => {
           className='edit-form-body-input'
           name='body'
           type='text'
-          placeholder={'What are you thinking?'}
+          placeholder={'Type Your New Post Here'}
           value={body}
           onChange={updateBody}
           required
@@ -63,14 +55,14 @@ const EditPostForm = () => {
       </div>
       <div>
         {/* <p className='create-form-image'>IMAGE</p> */}
-        <input
+        {/* <input
           className='edit-form-image-input'
           name='image'
           type='text'
           placeholder='Enter a valid image url'
           value={image}
           onChange={updateImage}
-        />
+        /> */}
         <div className='edit-form-button-container'>
         <button type='submit' className='edit-form-button'>Complete</button>
         </div>

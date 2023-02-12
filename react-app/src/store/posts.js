@@ -126,11 +126,11 @@ export default function reducer(state = defaultState, action) {
 
     switch (action.type) {
         case LOAD_POST:
-            return {...newState, ...action.payload}
+            return {...action.payload}
         case USER_POSTS:
-            return {...newState, ...action.payload}
+            return {...action.payload}
         case ALL_POSTS:
-            return {...newState, ...action.payload}
+            return {...action.payload}
         case CREATE_POST:
             newState[action.payload.id] = action.payload
             return newState;

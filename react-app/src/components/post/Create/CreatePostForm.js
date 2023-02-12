@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useEffect } from 'react';
-import { allPostsThunk, createPostThunk, loadUserPostsThunk } from '../../../store/posts';
+import { createPostThunk, loadUserPostsThunk } from '../../../store/posts';
 import './CreatePost.css';
 
 
@@ -14,31 +14,30 @@ const CreatePostForm = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
+  // const reloadPosts = () => {
+  //   setTimeout(() => {
+  //     dispatch(loadUserPostsThunk(user.id))
+  //   }, 1500)
+  // }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // if (!data) {
-    //   setError("Please Try Again")
-    //   setBody('')
-    //   SetImage('')
-    // } else {
-    //   setError(null)
-    // }
-
-    return dispatch(createPostThunk(body, image)).then(history.push(`/users/${user.id}/posts`))
+    const data = await dispatch(createPostThunk(body, image)).then(history.push(`/me`))
+    // .then(reloadPosts())
+    return data
   };
 
   useEffect(() => {
-    
-  }, [dispatch, error]);
+    loadUserPostsThunk(user.id)
+  }, [dispatch]);
 
   const updateBody = (e) => {
     setBody(e.target.value);
   };
 
-  const updateImage = (e) => {
-    SetImage(e.target.value);
-  };
+  // const updateImage = (e) => {
+  //   SetImage(e.target.value);
+  // };
 
   return (
     <div>
@@ -61,14 +60,14 @@ const CreatePostForm = () => {
       </div>
       <div>
         {/* <p className='create-form-image'>IMAGE</p> */}
-        <input
+        {/* <input
           className='create-form-image-input'
           name='image'
           type='text'
           placeholder='Enter a valid image url'
           value={image}
           onChange={updateImage}
-        />
+        /> */}
         <div className='create-form-button-container'>
         <button type='submit' className='create-form-button'>Create Post</button>
         </div>

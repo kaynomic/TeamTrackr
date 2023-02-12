@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
-// import { editPostThunk, loadPostThunk } from '../../../store/posts';
-// import './EditPost.css';
+import './EditCommentForm.css';
 import { editCommentThunk, loadCommentThunk, loadPostCommentsThunk } from '../../../store/comments';
 
 
@@ -11,7 +10,7 @@ const EditCommentForm = () => {
   const [error, setError] = useState(null);
   const [body, setBody] = useState('');
   const [image, SetImage] = useState('');
-  const user = useSelector(state => state.session.user);
+  // const user = useSelector(state => state.session.user);
   const {postId, commentId} = useParams();
   const dispatch = useDispatch();
   const history = useHistory();
@@ -57,7 +56,7 @@ const EditCommentForm = () => {
           className='edit-form-body-input'
           name='body'
           type='text'
-          placeholder={"Enter New Comment"}
+          placeholder={"Type Your New Comment Here"}
           value={body}
           onChange={updateBody}
           required
@@ -65,14 +64,14 @@ const EditCommentForm = () => {
       </div>
       <div>
         {/* <p className='create-form-image'>IMAGE</p> */}
-        <input
+        {/* <input
           className='edit-form-image-input'
           name='image'
           type='text'
           placeholder='Enter a valid image url'
           value={image}
           onChange={updateImage}
-        />
+        /> */}
         <div className='edit-form-button-container'>
         <button type='submit' className='edit-form-button'>Complete</button>
         </div>
