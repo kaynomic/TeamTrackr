@@ -1,0 +1,152 @@
+@import url('https://fonts.cdnfonts.com/css/espn');
+
+.signup-form-container {
+    /* display: block;
+    flex-direction: column;
+    justify-content: space-evenly; */
+    background-repeat: no-repeat;
+    background-position: left 20px bottom 80px;
+    background-size: 30%;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid transparent;
+    border-radius: 10px;
+    background-color: #2e3035;
+    /* box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25); */
+    width: 20em;
+}
+
+.signup-header {
+    font-size: 20px;
+    font-family: 'ESP', sans-serif;
+    display: flex;
+    justify-content: center;
+    color: red;
+}
+
+.signup-hyperlink {
+    color: white
+}
+
+.username-header {
+    display: flex;
+    font-size: 10px;
+    color: rgb(151, 151, 151);
+    font-family: 'ESP', sans-serif;
+    font-weight: bold;
+}
+
+.username-input {
+    margin-bottom: 10px;
+    width: 98%;
+    display: flex;
+    justify-content: flex-end;
+    color: white;
+}
+
+.signup-email-header {
+    display: flex;
+    font-size: 10px;
+    color: rgb(151, 151, 151);
+    font-family: 'ESP', sans-serif;
+    font-weight: bold;
+}
+
+.signup-email-input {
+    width: 98%;
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.signup-password-header {
+    display: flex;
+    font-size: 10px;
+    color: rgb(151, 151, 151);
+    font-family: 'ESP', sans-serif;
+    font-weight: bold;
+}
+
+.signup-password-input {
+    width: 98%;
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.repeat-password-header {
+    display: flex;
+    font-size: 10px;
+    color: rgb(151, 151, 151);
+    font-family: 'ESP', sans-serif;
+    font-weight: bold;
+}
+
+.repeat-password-input {
+    width: 98%;
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.signup-button {
+    background-color: red ;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: 'ESP', sans-serif;
+}
+
+/* .signup-button-container {
+    margin-right: 24px;
+    margin-left: -15px;
+} */
+
+.submit-button:hover {
+    background-color: #677BC4;
+}
+
+.account-owner {
+    font-size: 12px;
+    color: rgb(151, 151, 151);
+    width: 70%;
+    display: flex;
+    align-items: flex-start;
+    font-family: 'ESP', sans-serif;
+}
+
+.signup-image-header {
+    display: flex;
+    font-size: 10px;
+    color: rgb(151, 151, 151);
+    font-family: 'ESP', sans-serif;
+    font-weight: bold;
+}
+
+.signup-image-input {
+    width: 98%;
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.signup-error {
+    color: white;
+}

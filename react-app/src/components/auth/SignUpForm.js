@@ -1,21 +1,25 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux'
-import { Redirect } from 'react-router-dom';
+import { useDispatch } from 'react-redux'
+import { Link, useHistory } from 'react-router-dom';
 import { signUp } from '../../store/session';
+import './SignupForm.css';
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
+  const [image, setImage] = useState('')
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
-  const user = useSelector(state => state.session.user);
+  // const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+  const history = useHistory();
+
 
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const data = await dispatch(signUp(username, email, password));
+      const data = await dispatch(signUp(username, email, password, image)).then(history.push('/me'))
       if (data) {
         setErrors(data)
       }
@@ -30,6 +34,10 @@ const SignUpForm = () => {
     setEmail(e.target.value);
   };
 
+  const updateImage = (e) => {
+    setImage(e.target.value)
+  }
+
   const updatePassword = (e) => {
     setPassword(e.target.value);
   };
@@ -38,56 +46,83 @@ const SignUpForm = () => {
     setRepeatPassword(e.target.value);
   };
 
-  if (user) {
-    return <Redirect to='/' />;
-  }
-
   return (
-    <form onSubmit={onSignUp}>
-      <div>
+    <div className='su-container'>
+      <form onSubmit={onSignUp} className="signup-form-container">
+        <div>
         {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
+          <div key={ind} className='signup-error'>{error}</div>
         ))}
-      </div>
-      <div>
-        <label>User Name</label>
-        <input
+        </div>
+        <div>
+          <h1 className='signup-header'>Create an account</h1>
+        {/* <p className='username-header'>USERNAME</p> */}
+          <input
+          className='username-input'
           type='text'
+          placeholder='Username'
           name='username'
           onChange={updateUsername}
           value={username}
+          required
         ></input>
-      </div>
-      <div>
-        <label>Email</label>
+        </div>
+        <div>
+        {/* <p className='signup-email-header'>EMAIL</p> */}
         <input
+          className='signup-email-input'
           type='text'
+          placeholder='Email'
           name='email'
           onChange={updateEmail}
           value={email}
+          required
         ></input>
-      </div>
-      <div>
-        <label>Password</label>
+        </div>
+        <div>
+        {/* <p className='signup-image-header'>PROFILE PICTURE</p> */}
         <input
+          className='signup-image-input'
+          type='text'
+          placeholder='Image Link'
+          name='image'
+          onChange={updateImage}
+          value={image}
+          required
+        ></input>
+        </div>
+        <div>
+        {/* <p className='signup-password-header'>PASSWORD</p> */}
+          <input
+          className='signup-password-input'
           type='password'
+          placeholder='Password'
           name='password'
           onChange={updatePassword}
           value={password}
+          required
         ></input>
-      </div>
-      <div>
-        <label>Repeat Password</label>
+        </div>
+        <div>
+        {/* <p className='repeat-password-header'>REPEAT PASSWORD</p> */}
         <input
+          className='repeat-password-input'
           type='password'
+          placeholder='Repeat Password'
           name='repeat_password'
           onChange={updateRepeatPassword}
           value={repeatPassword}
-          required={true}
+          required
         ></input>
-      </div>
-      <button type='submit'>Sign Up</button>
+        </div>
+        <div className='signup-button-container'>
+          <button type='submit' className='signup-button'>Sign Up</button>
+        </div>
+        <Link to='/login' className='signup-hyperlink'>
+        <p className='account-owner'>Already have an account?</p>
+        </Link>
     </form>
+  </div>
   );
 };
 

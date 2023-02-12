@@ -1,0 +1,8 @@
+.user-post {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid red;
+    padding: 5px;
+    width: 70%;
+}

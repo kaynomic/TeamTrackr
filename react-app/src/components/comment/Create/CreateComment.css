@@ -1,0 +1,85 @@
+@import url('https://fonts.cdnfonts.com/css/espn');
+
+.create-form-container {
+    background-repeat: no-repeat;
+    background-position: left -5px bottom 50px;
+    background-size: 50%;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid transparent;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
+    width: 20em;
+}
+
+.create-form-header {
+    font-size: 20px;
+    font-family: 'ESP', sans-serif;
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+.create-form-intro {
+    font-size: 14px;
+    color: rgb(0, 0, 0);
+    font-family: 'ESP', sans-serif;
+    font-weight: light;
+    /* padding-right: 30px;
+    padding-bottom: 20px;
+    margin: -10px; */
+}
+
+
+.create-form-server {
+    display: flex;
+    font-size: 10px;
+    color: rgb(0, 0, 0);
+    font-family: 'ESP', sans-serif;
+    font-weight: bold;
+}
+
+.create-form-body-input {
+    width: 98%;
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+/* .create-form-image {
+    display: flex;
+    font-size: 10px;
+    color: rgb(0, 0, 0);
+    font-family: 'ESP', sans-serif;
+    font-weight: bold;
+} */
+
+.create-form-image-input {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+.create-form-button {
+    background-color: red;
+    justify-content: center;
+    align-self: center;
+    color: rgb(151, 151, 151);
+    display: flex;
+    width: 100%;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: 'ESP', sans-serif;
+}
+
+.create-form-button:hover {
+    background-color: #44474e ;
+}

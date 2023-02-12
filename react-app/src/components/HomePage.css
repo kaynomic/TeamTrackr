@@ -1,0 +1,129 @@
+@import url('https://fonts.cdnfonts.com/css/espn');
+
+* {
+    font-family: 'ESP', sans-serif;
+    background-color: black;
+    color: white;
+}
+
+/* .bg-img-container {
+    size: 600px;
+} */
+
+.header-image-home {
+    width: 95%;
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+.header-image-home2 {
+    width: 100%;
+}
+
+.nav-bar-homepage {
+    position: absolute;
+    right: 0;
+    /* background-color: grey; */
+    padding: 5px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    margin-right: 50px;
+}
+
+.nav-bar-login {
+    padding: 20px;
+    text-decoration: none;
+    font-family: Montserrat;
+}
+
+.nav-bar-signup {
+    text-decoration: none;
+    font-family: Montserrat;
+    padding: 10px;
+}
+
+.nav-bar-github {
+    text-decoration: none;
+    padding: 10px;
+}
+
+.home-intro {
+    font-family: ESP;
+    font-weight: bold;
+    background-color: gray;
+    border: 1px solid transparent;
+    border-radius: 40px;
+    margin: 100px;
+    padding: 30px;
+}
+
+.home-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+
+.home-login-button {
+    width: 200px;
+    height: 80px;
+    border-radius: 10px;
+    background-color: #ff0000; 
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    box-shadow: 2px 2px 2px #b3b3b3;
+
+}
+
+.home-signup-button{
+    width: 200px;
+    height: 80px;
+    border-radius: 10px;
+    background-color: #ff0000; 
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    margin-left: 50px;
+    box-shadow: 2px 2px 2px #888888;
+}
+
+.home-header {
+    font-size: 120px;
+    text-align: center;
+    color: #ff0000;
+    padding: 0px;
+}
+
+.github-logo-container {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding-top: 100px;
+}
+
+.github-logo {
+    height: 70px;
+    width: 70px;
+    border-radius: 20px;
+}
+
+.home-bottom {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: red;
+    font-size: large;
+}
+
+.disbored-home-header {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
