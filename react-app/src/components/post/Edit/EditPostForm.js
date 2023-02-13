@@ -10,7 +10,8 @@ const EditPostForm = () => {
   const [error, setError] = useState(null);
   const [body, setBody] = useState('');
   const [image, SetImage] = useState('');
-  const user = useSelector(state => state.session.user);
+  // const user = useSelector(state => state.session.user);
+  const post = useSelector(state => state.posts)
   const {postId} = useParams();
   const dispatch = useDispatch();
   const history = useHistory();
@@ -24,6 +25,7 @@ const EditPostForm = () => {
 
   useEffect(() => {
     dispatch(loadPostThunk(postId))
+    setBody(post.body)
   }, [dispatch, postId, error]);
 
   const updateBody = (e) => {

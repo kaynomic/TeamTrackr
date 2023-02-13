@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link, useHistory } from 'react-router-dom';
+import { allPostsThunk } from '../../store/posts';
 import { signUp } from '../../store/session';
 import './SignupForm.css';
 
@@ -11,15 +12,21 @@ const SignUpForm = () => {
   const [image, setImage] = useState('')
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
-  // const user = useSelector(state => state.session.user);
+  const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
   const history = useHistory();
 
 
   const onSignUp = async (e) => {
     e.preventDefault();
-    if (password === repeatPassword) {
-      const data = await dispatch(signUp(username, email, password, image)).then(history.push('/me'))
+    if (password !== repeatPassword) {
+      setErrors(["Passwords do not match"]);
+    } else if (!email.includes("@")) {
+      setErrors(["Email is invalid"]);
+    } else {
+      const data = await dispatch(signUp(username, email, password, image))
+      .then(dispatch(allPostsThunk()))
+      .then(history.push('/me'))
       if (data) {
         setErrors(data)
       }

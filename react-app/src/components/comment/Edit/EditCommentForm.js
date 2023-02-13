@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import './EditCommentForm.css';
@@ -11,6 +11,8 @@ const EditCommentForm = () => {
   const [body, setBody] = useState('');
   const [image, SetImage] = useState('');
   // const user = useSelector(state => state.session.user);
+  const comment = useSelector(state => state.comments)
+  // console.log(comment)
   const {postId, commentId} = useParams();
   const dispatch = useDispatch();
   const history = useHistory();
@@ -33,6 +35,7 @@ const EditCommentForm = () => {
   useEffect(() => {
     dispatch(loadPostCommentsThunk(postId))
     dispatch(loadCommentThunk(commentId))
+    setBody(comment.body)
   }, [dispatch, postId, commentId, error]);
 
   const updateBody = (e) => {
