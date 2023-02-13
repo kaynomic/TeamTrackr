@@ -21,10 +21,10 @@ function CommentPage() {
         dispatch(loadCommentThunk(commentId))
     }, [dispatch, commentId, postId])
 
-    if (!currentUser) {
-        dispatch(authenticate());
-        return null;
-    }
+    // if (!currentUser) {
+    //     dispatch(authenticate());
+    //     return null;
+    // }
 
 
     const handleEdit = () => {
@@ -49,18 +49,23 @@ function CommentPage() {
         }
     }
 
-    return (
-        <>
-    <div className='comment-page-container'>
-        <div>{comments.user.username}</div>
-        <br></br>
-        <div>{comments.body}</div>       
-    </div>
-    <div className='comment-buttons-container'>
-    {handleComments()}
-    </div>
-        </>
-  );
+    if (comments) {
+        if (comments.user) {
+            return (
+                <>
+                <div className='comment-page-container'>
+                    <div>{comments.user.username}</div>
+                    <br></br>
+                    <div>{comments.body}</div>       
+                </div>
+                <div className='comment-buttons-container'>
+                    {handleComments()}
+                </div>
+                </>
+            );
+        }
+    }
+    return null
 }
 
 

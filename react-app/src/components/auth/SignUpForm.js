@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { Link, useHistory } from 'react-router-dom';
-import { allPostsThunk } from '../../store/posts';
+import { Link, Redirect, useHistory } from 'react-router-dom';
+// import { allPostsThunk } from '../../store/posts';
 import { signUp } from '../../store/session';
 import './SignupForm.css';
 
@@ -25,11 +25,10 @@ const SignUpForm = () => {
       setErrors(["Email is invalid"]);
     } else {
       const data = await dispatch(signUp(username, email, password, image))
-      .then(dispatch(allPostsThunk()))
       .then(history.push('/me'))
       if (data) {
         setErrors(data)
-      }
+      }     
     }
   };
 
@@ -52,6 +51,10 @@ const SignUpForm = () => {
   const updateRepeatPassword = (e) => {
     setRepeatPassword(e.target.value);
   };
+
+  if (user) {
+    return <Redirect to='/me' />;
+  }
 
   return (
     <div className='su-container'>

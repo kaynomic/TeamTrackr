@@ -12,7 +12,6 @@ const EditCommentForm = () => {
   const [image, SetImage] = useState('');
   // const user = useSelector(state => state.session.user);
   const comment = useSelector(state => state.comments)
-  // console.log(comment)
   const {postId, commentId} = useParams();
   const dispatch = useDispatch();
   const history = useHistory();

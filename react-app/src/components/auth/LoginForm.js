@@ -39,7 +39,6 @@ const LoginForm = () => {
     return <Redirect to={`/me`} />;
   }
 
-
   return (
     <div className='login-container'>
     <form onSubmit={onLogin} className="form-container">
@@ -78,7 +77,7 @@ const LoginForm = () => {
       <div>
         <button type='submit' className='demo-button' onClick={forDemo}>Demo User</button>
       </div>
-      <Link to='/sign-up' className='login-hyperlink'>
+      <Link to='/signup' className='login-hyperlink'>
         <p className='register-link'>Need an account? Register</p>
       </Link>
     </form>

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, Redirect, useHistory } from 'react-router-dom';
 import { allPostsThunk } from '../../store/posts';
 import NavBar from '../NavBar';
 import './UserPage.css';
@@ -23,10 +23,10 @@ const UserPage = () => {
 
     if (!posts) {
         return <div className='loading'>Loading...</div>
-    } else if (!Object.values(posts).length) {
-            return (<div >
-                        <h1 className='no-posts-in-your-feed'>Loading...</h1>
-                    </div>)
+    // } else if (!Object.values(posts).length) {
+    //         return (<div >
+    //                     <h1 className='no-posts-in-your-feed'>Loading...</h1>
+    //                 </div>)
     } else {
         return (
             user && posts ?
@@ -35,7 +35,7 @@ const UserPage = () => {
                 <div className='user-side'>
                     <div className='name-img'>
                         <h1 className='user-header'>{user.username}</h1>
-                        <img src={user.image} className="user-img" alt='demo'></img>
+                        <img src={user.image} className="user-img" alt=''/>
                     </div>
                     <div className='post-button-container'>
                         <button type='submit' className='create-post-button' onClick={handleClick}>
