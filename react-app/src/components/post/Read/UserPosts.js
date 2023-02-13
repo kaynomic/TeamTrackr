@@ -21,6 +21,10 @@ function UserPosts() {
       return null
     } else {
     return (
+      <>
+      <div className='header-container'>
+        <h2 my-posts-header>{user.username}'s Posts</h2>
+      </div>
       <div className='post-container'>
           {user.posts.map((post, i) => {
               return (
@@ -30,6 +34,7 @@ function UserPosts() {
                 )
           })}
       </div>
+      </>
     );
   }
 }

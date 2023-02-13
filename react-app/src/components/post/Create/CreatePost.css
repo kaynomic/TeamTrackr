@@ -48,6 +48,8 @@
     display: flex;
     justify-content: center;
     color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 /* .create-form-image {
@@ -62,7 +64,12 @@
     width: 80%;
     display: flex;
     justify-content: center;
+    align-items: center;
     color: white;
+}
+
+.create-form-button-container {
+    padding-top: 10px;
 }
 
 .create-form-button {

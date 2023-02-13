@@ -48,6 +48,8 @@
     display: flex;
     justify-content: center;
     color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 /* .create-form-image {
@@ -64,6 +66,11 @@
     justify-content: center;
     color: white;
 }
+
+.edit-form-button-container {
+    padding-top: 10px;
+}
+
 
 .edit-form-button {
     background-color: red;
