@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { allPostsThunk } from '../../store/posts';
 import NavBar from '../NavBar';
 import './UserPage.css';
@@ -9,7 +9,7 @@ const UserPage = () => {
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user);
     const posts = Object.values(useSelector(state => state.posts))
-    // const {userId} = useParams();
+    // const {postId} = useParams();
     const history = useHistory();
 
     useEffect(() => {
@@ -53,7 +53,7 @@ const UserPage = () => {
                                     {/* <div className='feed-post-user-img'>
                                     <img src={post.user.image}></img>
                                     </div> */}
-                                    <div className='feed-post-body'>{post.body}</div>
+                                    <Link to={`/posts/${post.id}`} className='feed-post-body'>{post.body}</Link>
                                     </div>
                                 </div>
                             )

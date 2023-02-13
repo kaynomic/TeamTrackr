@@ -56,22 +56,30 @@ function PostPage() {
       }
     };
       
+    if (post) {
+      if (post.user) {
+        return (
+          <>
+          <div className='post-page-container'>
+          <div className='post-header'>{post.user.username}</div>
+          <div className='post-body'>{post.body}</div>
+          <br></br>
+            {showComments()}
+          </div>
+          {post.user && currentUser && post.user.id === currentUser.id ? (
+            <div className='post-buttons-container'>
+              <button onClick={handleEdit} className='post-edit-button'>Edit Post</button>
+              <button onClick={() => handleDelete(postId)}className='post-delete-button'>Delete Post</button>
+            </div>
+          ) : null}
+          
+          <button onClick={addComment}className='add-comment-button'>Add A Comment</button>
+          </>
+        );
+      }
+      }
+    return null
+  }
 
-  return (
-    <>
-    <div className='post-page-container'>
-      <div className='post-header'>{currentUser.username}</div>
-      <div className='post-body'>{post.body}</div>
-      <br></br>
-      {showComments()}
-    </div>
-    <div className='post-buttons-container'>
-      <button onClick={handleEdit} className='post-edit-button'>Edit Post</button>
-      <button onClick={() => handleDelete(postId)}className='post-delete-button'>Delete Post</button>
-      <button onClick={addComment}className='add-comment-button'>Add A Comment</button>
-    </div>
-    </>
-  );
-}
 
 export default PostPage;
