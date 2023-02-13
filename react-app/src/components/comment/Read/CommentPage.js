@@ -54,9 +54,12 @@ function CommentPage() {
             return (
                 <>
                 <div className='comment-page-container'>
-                    <div>{comments.user.username}</div>
-                    <br></br>
-                    <div>{comments.body}</div>       
+                    <div className='name-container'>
+                        <div className='name'>{comments.user.username}</div>
+                    </div>
+                    <div className='body-container'>
+                        <div className='body'>{comments.body}</div>       
+                    </div>
                 </div>
                 <div className='comment-buttons-container'>
                     {handleComments()}
