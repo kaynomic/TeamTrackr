@@ -29,9 +29,9 @@ Deployed using Render.com: <a href="https://teamtrackr.onrender.com/"> Website <
 
 ### Future Functionality
 * Finish Follower Functionality
-* Add Ability to add 
-* Bigger Database with a search function
-* Quality of life improvements and more styling
+* Add Ability to Follow Teams
+* Add Ability to Like Posts
+* Quality of life improvements and more Styling
 
 ## Technologies
 
