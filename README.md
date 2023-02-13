@@ -17,7 +17,7 @@ Deployed using Render.com: <a href="https://teamtrackr.onrender.com/"> Website <
 
 ## My Teams Page
 
-<img src="https://thumbs.dreamstime.com/b/coming-soon-coming-soon-message-note-hands-holding-paper-sign-announcement-113675278.jpg">
+<img src="https://img.freepik.com/free-vector/neon-style-coming-soon-glowing-background-design_1017-25516.jpg">
 
 ## Current and Future Functionality
 
