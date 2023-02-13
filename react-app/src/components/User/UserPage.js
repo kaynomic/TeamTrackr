@@ -22,7 +22,7 @@ const UserPage = () => {
     }
 
     if (!posts) {
-        return <div>Loading...</div>
+        return <div className='loading'>Loading...</div>
     } else if (!Object.values(posts).length) {
             return (<div >
                         <h1 className='no-posts-in-your-feed'>Loading...</h1>

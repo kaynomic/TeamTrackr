@@ -1,59 +1,90 @@
-.user-side {
-    display: block;
-    width: 20%;
-}
-
-.user-header {
-    color: white;
-}
-
-.user-post {
-    color: white;
-}
-
-.user-img {
-    width: 100px;
-    height: auto;
-    border-radius: 10px;
-}
-
-.name-img {
+.loading {
     display: flex;
-}
-
-.user-feed {
-    display: block;
-    width: 80%;
-    right: 0;
-    top: 60px;
-    position: absolute;
-}
-
-.feed-container {
-    display: block;
     justify-content: center;
     align-items: center;
-    border: 5px solid red;
-    padding: 5px;
-    width: 70%;
 }
 
-.post-button-container {
-    display: block;
-}
-
-.create-post-button {
+.user-side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: black;
     color: white;
+    padding: 20px;
+  }
+  
+  .name-img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .user-header {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  .user-img {
     width: 200px;
-    height: 80px;
-    font-size: 24px;
-    border: 3px solid red;
-}
-
-.my-posts-button {
+    height: 200px;
+    border-radius: 100px;
+    margin-bottom: 20px;
+  }
+  
+  .post-button-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .create-post-button {
+    background-color: red;
     color: white;
-    width: 110px;
-    height: 75px;
     font-size: 24px;
-    border: 3px solid red;
-}
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
+  .create-post-button:hover {
+    background-color: white;
+    color: red;
+  }
+  
+  .user-feed {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: white;
+    padding: 20px;
+  }
+  
+  .feed-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    margin: 10px;
+  }
+  
+  .feed-post-container {
+    background-color: black;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .feed-post-user {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .feed-post-body {
+    font-size: 18px;
+    color: red;
+    text-decoration: none;
+  }
+  
+  .feed-post-body:hover {
+    background-color: white;
+  }

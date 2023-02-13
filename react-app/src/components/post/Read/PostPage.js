@@ -72,8 +72,10 @@ function PostPage() {
               <button onClick={() => handleDelete(postId)}className='post-delete-button'>Delete Post</button>
             </div>
           ) : null}
-          
-          <button onClick={addComment}className='add-comment-button'>Add A Comment</button>
+
+          <div className='add-comment-button-container'>
+            <button onClick={addComment}className='add-comment-button'>Add A Comment</button>
+          </div>
           </>
         );
       }

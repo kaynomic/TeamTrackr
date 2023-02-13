@@ -52,7 +52,7 @@ function CommentPage() {
     return (
         <>
     <div className='comment-page-container'>
-        <div>{currentUser.username}</div>
+        <div>{comments.user.username}</div>
         <br></br>
         <div>{comments.body}</div>       
     </div>

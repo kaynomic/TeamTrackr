@@ -13,7 +13,11 @@ Deployed using Render.com: <a href="https://teamtrackr.onrender.com/"> Website <
 
 ## Current User Page (Logged In)
 
-<img src="">
+<img src="https://res.cloudinary.com/dqqewlghx/image/upload/v1676270264/stuff/userpage_ega07a.png">
+
+## Post Page
+
+<img src="https://res.cloudinary.com/dqqewlghx/image/upload/v1676270380/stuff/postpage_cvwoel.png">
 
 ## My Teams Page
 
